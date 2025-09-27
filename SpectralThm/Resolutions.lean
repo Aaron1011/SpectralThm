@@ -75,7 +75,11 @@ def toOuterMeasure {α : Type*} [MeasurableSpace α] (E : ResolutionOfIdentity �
   mono {w₁ w₂} h := by
     rw [ENNReal.ofReal_le_ofReal_iff (norm_nonneg _)]
     sorry
-  iUnion_nat := sorry
+  iUnion_nat := by
+    intro f hf
+    have foo := E.m_iUnion' (x := x) (y := x) (w := f) sorry hf
+    have other := foo.tsum_eq
+    rw [← ]
 
 noncomputable def toMeasure {α : Type*} [MeasurableSpace α] (E : ResolutionOfIdentity α H)
     (x : H) : Measure α :=
@@ -85,6 +89,7 @@ noncomputable def toMeasure {α : Type*} [MeasurableSpace α] (E : ResolutionOfI
     trim_le := by
       rw [MeasureTheory.OuterMeasure.trim_trim]
   }
+
 
 variable (E : ResolutionOfIdentity α H)
 
