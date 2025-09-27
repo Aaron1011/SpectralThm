@@ -123,6 +123,22 @@ theorem exists_pos_lin_func : ∃ (Λ : C₀(X, ℝ) →L[ℝ] ℝ), ∀ (f : C�
     rw [← ha]
     positivity
   have (f : C_c(X, ℝ≥0)) : ‖Φ (toComplex (f.toReal))‖ ≤ Λ' f := by
+    -- unfold Λ'
+    -- apply le_csSup
+    -- .
+    --   rw [bddAbove_def]
+    --   use ‖Φ (toComplex (f.toReal))‖
+    --   intro y hy
+    --   simp at hy
+    --   obtain ⟨a, a_mem, ha⟩ := hy
+    --   unfold U at a_mem
+    --   simp at a_mem
+    --   obtain ⟨g, hg, a_eq_g⟩ := a_mem
+    --   rw [← a_eq_g] at ha
+    --   rw [← ha]
+
+
+
     sorry
   have (f : C_c(X, ℝ≥0)) : Λ' f ≤ ‖toZeroAtInftyContinuousMap' f.toReal‖ := by
     sorry
